@@ -51,12 +51,12 @@ def calculate_meal_macros(*ingredients):
         calories += ingredient[0].calories * ratio
         fat += ingredient[0].fat * ratio
         protein += ingredient[0].protein * ratio
-        fiber += ingredient[0].fiber * ratio
-        net_carbs += ingredient[0].net_carbs * ratio
+        fiber += ingredient[0].dietary_fiber * ratio
+        net_carbs += ingredient[0].net_carbohydrates * ratio
     fat_ratio = round(fat/calories, 2)
     protein_ratio = round(protein/calories, 2)
     net_carb_ratio = round(net_carbs/calories, 2)
-    print(f"Calories: {calories} | Fiber {fiber}")
+    print(f"Calories: {round(calories, 2)} | Fiber {round(fiber, 2)}")
     print("Fat / Protein / Net Carb ratios:")
     print(f"{fat_ratio} / {protein_ratio} / {net_carb_ratio}")
 
@@ -68,3 +68,6 @@ avocado = Food("Avocado",
           dietary_fiber=13,
           units=201,
           unit_measurement='gram')
+
+
+calculate_meal_macros((avocado, 10))
