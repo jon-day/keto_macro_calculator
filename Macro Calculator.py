@@ -9,6 +9,7 @@ The typical macro ratio for keto looks like the following:
     of how you are doing. Essentially it is the net carbs * 4, protein * 4, and fat * 9
 
     I also convert everything to ounces because USA #1
+    Food macros from https://www.nutritionix.com
 """
 
 
@@ -61,13 +62,80 @@ def calculate_meal_macros(*ingredients):
     print(f"{fat_ratio} / {protein_ratio} / {net_carb_ratio}")
 
 
-avocado = Food("Avocado",
+avocado = Food("avocado",
           fat=29,
           protein=4,
           total_carbohydrates=17,
           dietary_fiber=13,
           units=201,
-          unit_measurement='gram')
+          unit_measurement='gram',
+)
 
+bacon = Food(
+    name="bacon",
+    fat=12,
+    protein=12,
+    total_carbohydrates=.6,
+    dietary_fiber=0,
+    units=35,
+    unit_measurement='gram',
+)
 
-calculate_meal_macros((avocado, 10))
+large_egg = Food(
+    name="egg",
+    fat=4.8,
+    protein=6.3,
+    total_carbohydrates=.4,
+    dietary_fiber=0,
+    units=50,
+    unit_measurement='gram',
+)
+
+almonds = Food(
+    name="almonds",
+    fat=.7,
+    protein=.3,
+    total_carbohydrates=.3,
+    dietary_fiber=.1,
+    units=1.3,
+    unit_measurement='gram',
+)
+
+brocolus = Food(
+    name="brocolus",
+    fat=.1,
+    protein=.9,
+    total_carbohydrates=2.7,
+    dietary_fiber=1.2,
+    units=37,
+    unit_measurement='gram',
+)
+
+chicken_breast = Food(
+    name="chicken_breast",
+    fat=4.3,
+    protein=37,
+    total_carbohydrates=0,
+    dietary_fiber=0,
+    units=120,
+    unit_measurement='gram',
+)
+
+cauliflower = Food(
+    name="cauliflower",
+    fat=2.6,
+    protein=11,
+    total_carbohydrates=24,
+    dietary_fiber=13,
+    units=575,
+    unit_measurement='gram',
+)
+calculate_meal_macros(
+    (avocado, 6),
+    (bacon, 3),
+    (large_egg, 1),
+    (almonds, 4),
+    (chicken_breast, 5),
+    (cauliflower, 4),
+    (brocolus, 4),
+)
